@@ -11,7 +11,8 @@ try {
     $stm->bindParam("nama", $nama);
     $stm->bindParam("old_nim", $old_nim);
     $stm->execute();
-    echo json_encode(["error" => false, "msg" => "berhasil menambah data"]);
+
+    echo json_encode(["error" => false, "msg" => "berhasil mengubah data"]);
 } catch (\Throwable $th) {
     http_response_code(401);
     echo json_encode(["error" => true, "msg" => "Gagal mengubah data ".$th->getMessage().""]);

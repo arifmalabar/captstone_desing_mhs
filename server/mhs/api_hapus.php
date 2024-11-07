@@ -4,6 +4,8 @@ $nim = $_GET['nim'];
 try {
     $sql_search = "SELECT * FROM `mahasiswa` WHERE NIM = :nim";
     $eff_row = $pdo->prepare($sql_search);
+    $eff_row->bindParam("nim", $nim);
+    $eff_row->execute();
     if($eff_row->rowCount() != 0){
         $sql = "DELETE FROM `mahasiswa` WHERE NIM = :nim ";
         $stm = $pdo->prepare($sql);
